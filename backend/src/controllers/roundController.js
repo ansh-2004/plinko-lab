@@ -90,6 +90,7 @@ export async function startRound(req, res) {
       pegMapHash: result.pegMapHash,
       rows: 12,
       binIndex: result.binIndex,
+      path: result.path,
     });
   } catch (err) {
     console.error(err);
