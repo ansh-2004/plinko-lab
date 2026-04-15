@@ -151,6 +151,39 @@ export function verifyRound(req, res) {
   }
 }
 
+export async function getRound(req, res) {
+  try {
+    const { id } = req.params;
+
+    const round = await prisma.round.findUnique({
+      where: { id },
+    });
+
+    if (!round) {
+      return res.status(404).json({ error: "Round not found" });
+    }
+
+    res.json(round);
+  } catch (err) {
+    res.status(500).json({ error: "Failed to fetch round" });
+  }
+}
+
+export async function getRecentRounds(req, res) {
+  try {
+    const limit = Number(req.query.limit) || 20;
+
+    const rounds = await prisma.round.findMany({
+      take: limit,
+      orderBy: { createdAt: "desc" },
+    });
+
+    res.json(rounds);
+  } catch (err) {
+    res.status(500).json({ error: "Failed to fetch rounds" });
+  }
+}
+
 function getPayout(bin) {
   const table = [
     5, 3, 2, 1.5, 1.2, 1, 0.8, 1, 1.2, 1.5, 2, 3, 5
