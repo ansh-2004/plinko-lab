@@ -8,8 +8,8 @@ export default function PlinkoBoard({ rows = 12, path ,muted, binIndex}) {
   const START_X = 240; // center adjust 
   const ROW_HEIGHT = 35;
   const [ballPos, setBallPos] = useState({ x: START_X, y: 0 });
-  const tickSound = new Audio("/src/assets/tick.mp3");
-  const winSound = new Audio("/src/assets/win.mp3");
+const tickSound = new Audio("/tick.mp3");
+const winSound = new Audio("/win.mp3");
 
 
 useEffect(() => {

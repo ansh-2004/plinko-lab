@@ -7,7 +7,7 @@ export default function RecentRounds() {
   useEffect(() => {
     async function fetchRounds() {
       const data = await getRecentRounds();
-      setRounds(data);
+      setRounds(Array.isArray(data) ? data : []);
     }
     fetchRounds();
   }, []);
