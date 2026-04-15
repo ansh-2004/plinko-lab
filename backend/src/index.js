@@ -5,7 +5,10 @@ import verifyRoutes from "./routes/verifyRoutes.js";
 const app = express()
 const PORT = 3000
 
-app.use(cors())
+app.use(cors({
+    origin : "https://plinko-lab-seven.vercel.app",
+    credentials: true
+}))
 app.use(express.json())
 
 
