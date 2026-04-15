@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:3000/api";
+const BASE_URL = "https://plinko-lab-e6j3.onrender.com/api";
 
 export async function createRound() {
   const res = await fetch(`${BASE_URL}/rounds/commit`, {
